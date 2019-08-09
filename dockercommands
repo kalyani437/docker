@@ -1,0 +1,56 @@
+docker volume create my-vol
+docker volume ls
+docker volume inspect my-vol
+docker volume rm my-vol
+docker run -it -d -p 9001:80 --name=devtest --mount source=myvol2,target=/app mohri1219/centos6.7-ruby2.2.2-mysql5.6
+docker login --username=yourhubusername
+docker commit <container ID> <new image name> 
+docker tag <image Id > 7777v/myganesh:awesome
+docker push 7777v/myganesh:awesome
+curl -sSL https://get.docker.com/ | sh
+docker top <container ID> == to check the process on container ID
+docker stats
+docker container port < container ID >
+docker network ls
+docker network inspect
+docker network create --driver 
+docker network connect
+docker network disconnect 
+docker run -d -it -p 9000:80 --name=container_name --network network_name image_id
+ docker history <image Id >
+==============================
+
+FROM mohri1219/centos6.7-ruby2.2.2-mysql5.6
+
+MAINTAINER  Yaddanapudi.ganesh@gmail.com
+
+RUN yum -y install httpd; yum clean all
+
+RUN echo “This is Ganesh Docker File” > /var/www/html/index.html
+
+EXPOSE 80
+
+ENTRYPOINT service httpd start && /bin/bash
+
+CMD /bin/bash
+
+
+============================= 
+docker image build -t < require Image Name > .
+
+=============================
+
+docker swarm : - 
+docker swarm init
+docker node ls
+docker service create
+docker service ls
+docker service ps < container ID>
+docker service update < container ID> --replicas 3
+docker service ls
+docker service ps < container ID>
+docker service update --help
+docker ps 
+docker stop < container ID>
+docker service ls
+docker service ps <container id>
